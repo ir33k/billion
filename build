@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+CC="cc"
+CFLAGS="-std=c99 -Wall -Wextra -Wshadow -Wmissing-declarations -Wswitch-enum -Wno-deprecated-declarations -pedantic -ggdb"
+
+set -e # Stop on first error
+
+$CC $CFLAGS -o gen gen.c -lm 2>&1
