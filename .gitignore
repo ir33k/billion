@@ -1,4 +1,5 @@
 gen
+solve
+*.tmp
 *.wow
 sh
-*.tmp

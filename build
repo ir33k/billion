@@ -5,4 +5,5 @@ CFLAGS="-std=c99 -Wall -Wextra -Wshadow -Wmissing-declarations -Wswitch-enum -Wn
 
 set -e # Stop on first error
 
-$CC $CFLAGS -o gen gen.c -lm 2>&1
+$CC $CFLAGS -o gen   gen.c   -lm 2>&1
+$CC $CFLAGS -o solve solve.c     2>&1

@@ -176,7 +176,6 @@ run(int n)
 	int lines=0;			/* Number of lines in CSV file */
 	char *file, *pt;
 	Row *rows;
-	(void)n;
 	file = falloc(CSV);
 	lines = count_lines(file);
 	lines--;			/* Substract CSV header row */

@@ -1,16 +1,14 @@
 One Billion Row Challenge
 =========================
 
-My attempt of solving The One Billion Row Challenge [1] in C.
+My attempt in solving The One Billion Row Challenge [1] without Hash
+Map in C.  Also I'm doing this on very old ThinkPad X220 laptop [2].
 
 [1] https://github.com/gunnarmorling/1brc/
+[2] CPU: Intel i5-2520M (4) @ 3.200GHz 
 
-
-Rules and limits
-----------------
-
-Rules and limits, from original repo 1brc/README.md, that are relevant
-to solutions not written in Java:
+Rules and limits that I follow, from original repo 1brc/README.md, that
+are relevant to solutions not written in Java:
 
 - No external library dependencies may be used.
 - Implementations must be provided as a single source file.
@@ -30,23 +28,34 @@ to solutions not written in Java:
 - The rounding of output values must be done using the semantics of IEEE
   754 rounding-direction "roundTowardPositive".
 
-
-Measurements
-------------
-
-Based on src/main/java/dev/morling/onebrc/CreateMeasurements.java
-from original repo.
-
-
-Build and run
--------------
+Build:
 
 	$ ./build
 
-	$./gen 1000       > data1k.tmp
-	$./gen 1000000    > data1m.tmp
-	$./gen 1000000000 > data1g.tmp
+Generate input files with varing number of lines:
 
-	$ ./billion < data1k.tmp
-	$ ./billion < data1m.tmp
-	$ ./billion < data1g.tmp
+	$ ./gen 1000000    > data1m.tmp
+	$ ./gen 1000000000 > data1b.tmp
+
+Run solution program with one of input files:
+
+	$ ./solve < data1m.tmp
+	$ ./solve < data1b.tmp
+
+
+Devlog
+======
+
+2024-07-07 Sun 10:40
+--------------------
+
+I started by writing my own input data generator gen.c.  Just because I
+don't want to insetall Java to run the data generators from original repo.
+They also have an Python script [1] but the code is very slopy.  I don't want
+to use it.  My version is mostly a clone of CreateMeasurements.java [2]
+from original repo.
+
+Generation of 1B lines took around 8 minutes and file weights 13 GB.
+
+[1] src/main/python/create_measurements.py
+[2] src/main/java/dev/morling/onebrc/CreateMeasurements.java
